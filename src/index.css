@@ -6,14 +6,14 @@
 
 @layer base {
   :root {
-    /* Warm, artistic color palette */
-    --background: 40 33% 98%;
+    /* Baby pink color palette */
+    --background: 350 100% 96%;
     --foreground: 25 25% 18%;
 
-    --card: 0 0% 100%;
+    --card: 350 100% 97%;
     --card-foreground: 25 25% 18%;
 
-    --popover: 0 0% 100%;
+    --popover: 350 100% 97%;
     --popover-foreground: 25 25% 18%;
 
     /* Coral/Peach primary - warm and welcoming */
@@ -50,7 +50,7 @@
     --radius: 1rem;
 
     /* Sidebar */
-    --sidebar-background: 40 33% 98%;
+    --sidebar-background: 350 100% 96%;
     --sidebar-foreground: 25 25% 18%;
     --sidebar-primary: 12 76% 61%;
     --sidebar-primary-foreground: 0 0% 100%;
@@ -63,7 +63,7 @@
     --gradient-warm: linear-gradient(135deg, hsl(12 76% 61%), hsl(25 80% 65%));
     --gradient-ocean: linear-gradient(135deg, hsl(175 45% 45%), hsl(190 50% 50%));
     --gradient-sunset: linear-gradient(135deg, hsl(12 76% 61%), hsl(45 90% 65%));
-    --gradient-soft: linear-gradient(180deg, hsl(40 33% 98%), hsl(40 30% 94%));
+    --gradient-soft: linear-gradient(180deg, hsl(350 100% 96%), hsl(350 80% 94%));
   }
 
   .dark {
