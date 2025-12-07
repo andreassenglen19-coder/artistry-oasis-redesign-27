@@ -1,0 +1,283 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Nunito:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Warm, artistic color palette */
+    --background: 40 33% 98%;
+    --foreground: 25 25% 18%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 25 25% 18%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 25 25% 18%;
+
+    /* Coral/Peach primary - warm and welcoming */
+    --primary: 12 76% 61%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Soft sage secondary */
+    --secondary: 150 20% 90%;
+    --secondary-foreground: 150 30% 25%;
+
+    /* Cream muted tones */
+    --muted: 40 30% 94%;
+    --muted-foreground: 25 15% 45%;
+
+    /* Teal accent - artistic pop */
+    --accent: 175 45% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Lavender highlight */
+    --lavender: 270 40% 75%;
+    --lavender-foreground: 270 40% 20%;
+
+    /* Sunny yellow for joy */
+    --sunshine: 45 90% 65%;
+    --sunshine-foreground: 45 90% 15%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 30 25% 88%;
+    --input: 30 25% 88%;
+    --ring: 12 76% 61%;
+
+    --radius: 1rem;
+
+    /* Sidebar */
+    --sidebar-background: 40 33% 98%;
+    --sidebar-foreground: 25 25% 18%;
+    --sidebar-primary: 12 76% 61%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 175 45% 45%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 30 25% 88%;
+    --sidebar-ring: 12 76% 61%;
+
+    /* Custom gradients */
+    --gradient-warm: linear-gradient(135deg, hsl(12 76% 61%), hsl(25 80% 65%));
+    --gradient-ocean: linear-gradient(135deg, hsl(175 45% 45%), hsl(190 50% 50%));
+    --gradient-sunset: linear-gradient(135deg, hsl(12 76% 61%), hsl(45 90% 65%));
+    --gradient-soft: linear-gradient(180deg, hsl(40 33% 98%), hsl(40 30% 94%));
+  }
+
+  .dark {
+    --background: 25 25% 10%;
+    --foreground: 40 33% 96%;
+
+    --card: 25 25% 12%;
+    --card-foreground: 40 33% 96%;
+
+    --popover: 25 25% 12%;
+    --popover-foreground: 40 33% 96%;
+
+    --primary: 12 70% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 150 20% 18%;
+    --secondary-foreground: 150 20% 85%;
+
+    --muted: 25 20% 18%;
+    --muted-foreground: 30 15% 65%;
+
+    --accent: 175 40% 40%;
+    --accent-foreground: 0 0% 100%;
+
+    --lavender: 270 35% 50%;
+    --lavender-foreground: 270 35% 95%;
+
+    --sunshine: 45 85% 55%;
+    --sunshine-foreground: 45 85% 10%;
+
+    --destructive: 0 62.8% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 25 20% 20%;
+    --input: 25 20% 20%;
+    --ring: 12 70% 55%;
+
+    --sidebar-background: 25 25% 10%;
+    --sidebar-foreground: 40 33% 96%;
+    --sidebar-primary: 12 70% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 175 40% 40%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 25 20% 20%;
+    --sidebar-ring: 12 70% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-warm);
+  }
+
+  .text-gradient-ocean {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-ocean);
+  }
+
+  .bg-gradient-warm {
+    background-image: var(--gradient-warm);
+  }
+
+  .bg-gradient-ocean {
+    background-image: var(--gradient-ocean);
+  }
+
+  .bg-gradient-sunset {
+    background-image: var(--gradient-sunset);
+  }
+
+  .bg-gradient-soft {
+    background-image: var(--gradient-soft);
+  }
+
+  /* Artistic underline animation */
+  .link-underline {
+    @apply relative inline-block;
+  }
+  
+  .link-underline::after {
+    content: '';
+    @apply absolute w-full h-0.5 bottom-0 left-0 bg-primary origin-bottom-right transition-transform duration-300 scale-x-0;
+  }
+  
+  .link-underline:hover::after {
+    @apply origin-bottom-left scale-x-100;
+  }
+
+  /* Floating animation for decorative elements */
+  .float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .float-delayed {
+    animation: float 6s ease-in-out infinite;
+    animation-delay: 2s;
+  }
+
+  .float-slow {
+    animation: float 8s ease-in-out infinite;
+  }
+
+  /* Paint splash effect */
+  .paint-splash {
+    @apply relative overflow-hidden;
+  }
+
+  .paint-splash::before {
+    content: '';
+    @apply absolute inset-0 opacity-10;
+    background: radial-gradient(ellipse at 30% 20%, hsl(var(--primary)) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, hsl(var(--accent)) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, hsl(var(--lavender)) 0%, transparent 60%);
+  }
+
+  /* Glass morphism card */
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-md border border-border/50 shadow-xl;
+  }
+
+  /* Hover lift effect */
+  .hover-lift {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .hover-lift:hover {
+    @apply -translate-y-2 shadow-2xl;
+  }
+}
+
+@layer utilities {
+  /* Custom scrollbar */
+  .scrollbar-artistic::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .scrollbar-artistic::-webkit-scrollbar-track {
+    @apply bg-muted rounded-full;
+  }
+
+  .scrollbar-artistic::-webkit-scrollbar-thumb {
+    @apply bg-primary/40 rounded-full;
+  }
+
+  .scrollbar-artistic::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary/60;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes brush-stroke {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
