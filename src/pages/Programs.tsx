@@ -15,52 +15,70 @@ import {
   Clock,
   ArrowRight,
   Star,
-  Coffee
+  Coffee,
+  Scissors,
+  Gem,
+  Shell,
+  Puzzle,
+  Library,
+  PenTool
 } from "lucide-react";
 import galleryPreview from "@/assets/gallery-preview.jpg";
 
 const programs = [
   {
     icon: Palette,
-    title: "Daily Living Skills",
-    description: "Artistry Oasis LLC is a Day Service that offers Daily Living Skills. Through creative activities, participants build essential life skills while expressing themselves artistically.",
-    features: ["Problem Solving", "Decision Making", "Following Directions", "Independence"],
+    title: "Mixed Media",
+    description: "Let's make cool art using all kinds of things — paint, paper, stickers, fabric, and more! Mix them together to create your own fun masterpiece.",
     color: "primary",
   },
   {
     icon: BookOpen,
-    title: "Art Programs",
-    description: "Our core arts programs explore a wide variety of media. Artists work at their own pace with support from our skilled staff and volunteers.",
-    features: ["Mixed Media", "Painting", "Drawing", "Paper Crafts"],
+    title: "Painting",
+    description: "Grab a brush and paint with us! We use bright colors to make pictures, shapes, and anything your imagination can dream of.",
     color: "accent",
   },
   {
-    icon: Heart,
-    title: "Creative Crafts",
-    description: "Explore various craft techniques including mosaics, shell art, and jewelry design. Each project is tailored to individual interests and abilities.",
-    features: ["Mosaics", "Shell Art", "Easy Jewelry / Bead Design", "Custom Projects"],
+    icon: PenTool,
+    title: "Drawing",
+    description: "Learn how to draw using pencils and markers. We start with simple lines and shapes and turn them into awesome pictures!",
     color: "sunshine",
   },
   {
-    icon: Users,
-    title: "Social & Memory Activities",
-    description: "Engage in activities that promote social interaction and cognitive stimulation including memory games and library resources.",
-    features: ["Memory / Game Play", "Library Use", "Easy Readers", "DVD/Movie Rentals"],
+    icon: Scissors,
+    title: "Paper Crafts",
+    description: "Cut, fold, glue, and create! We use colorful paper to make cards, decorations, animals, and lots of fun craft projects.",
     color: "lavender",
   },
   {
-    icon: GraduationCap,
-    title: "After-School Workshops",
-    description: "Creative after-school programs where young artists can explore their artistic talents in a supportive, fun environment.",
-    features: ["Safe Environment", "Skill Building", "Creative Expression", "Wednesday Sessions"],
+    icon: Sparkles,
+    title: "Mosaics",
+    description: "Make beautiful designs using tiny tiles, beads, or stones. It's like building a picture piece by piece.",
     color: "primary",
   },
   {
-    icon: Calendar,
-    title: "Monthly Events",
-    description: "Regular community gatherings, exhibitions, and special events that celebrate our artists and bring the community together.",
-    features: ["Art Shows", "Community Events", "Celebrations", "Public Exhibitions"],
+    icon: Shell,
+    title: "Shell Art",
+    description: "We make cool art using seashells! Create ocean-themed crafts and decorate with shiny shells.",
     color: "accent",
+  },
+  {
+    icon: Gem,
+    title: "Easy Jewelry & Bead Design",
+    description: "Make your own bracelets and necklaces using colorful beads. Learn how to make patterns and create jewelry you can wear or share!",
+    color: "sunshine",
+  },
+  {
+    icon: Puzzle,
+    title: "Memory & Game Play",
+    description: "Play fun games like memory cards, puzzles, and matching games! These games help your brain stay happy and strong.",
+    color: "lavender",
+  },
+  {
+    icon: Library,
+    title: "Use of Library (Reading & Learning Fun)",
+    description: "Read easy books, play computer learning games, and explore fun movies. Learn new things in a calm and cozy space.",
+    color: "primary",
   },
 ];
 
@@ -100,7 +118,7 @@ const Programs = () => {
               What We Offer
             </span>
             <h1 className="text-5xl md:text-7xl font-display text-foreground mb-6">
-              Our <span className="text-gradient">Programs</span>
+              Programs & <span className="text-gradient">Daily Living Skills</span>
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed">
               Artistry Oasis LLC is a Day Service that offers Daily Living Skills through creative arts and community involvement.
@@ -126,44 +144,34 @@ const Programs = () => {
       {/* Programs Grid */}
       <section className="py-24 bg-background">
         <div className="container mx-auto px-4">
-          <StaggerContainer className="space-y-12">
-            {programs.map((program, index) => {
+          <AnimatedSection className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-display text-foreground mb-4">
+              Our <span className="text-gradient-ocean">Programs</span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Explore our variety of creative programs designed to inspire and empower every artist.
+            </p>
+          </AnimatedSection>
+          
+          <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {programs.map((program) => {
               const colors = colorClasses[program.color as keyof typeof colorClasses];
               return (
                 <motion.div key={program.title} variants={staggerItem}>
-                  <Card variant="artistic" className="overflow-hidden">
-                    <CardContent className="p-0">
-                      <div className={`grid lg:grid-cols-5 gap-0 ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
-                        {/* Icon Side */}
-                        <div className={`lg:col-span-2 p-8 lg:p-12 ${colors.bg} flex flex-col justify-center items-center text-center`}>
-                          <motion.div
-                            whileHover={{ rotate: 10, scale: 1.1 }}
-                            className="w-20 h-20 rounded-2xl bg-card shadow-soft flex items-center justify-center mb-6"
-                          >
-                            <program.icon className={`w-10 h-10 ${colors.text}`} />
-                          </motion.div>
-                          <h3 className="text-2xl md:text-3xl font-display text-foreground mb-2">
-                            {program.title}
-                          </h3>
-                        </div>
-
-                        {/* Content Side */}
-                        <div className="lg:col-span-3 p-8 lg:p-12">
-                          <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                            {program.description}
-                          </p>
-                          <div className="flex flex-wrap gap-3">
-                            {program.features.map((feature) => (
-                              <span
-                                key={feature}
-                                className={`px-4 py-2 rounded-full text-sm font-medium ${colors.bg} ${colors.text}`}
-                              >
-                                {feature}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
+                  <Card variant="artistic" className="h-full group hover:shadow-artistic transition-all duration-300">
+                    <CardContent className="p-8">
+                      <motion.div
+                        whileHover={{ rotate: 10, scale: 1.1 }}
+                        className={`w-16 h-16 rounded-2xl ${colors.bg} flex items-center justify-center mb-6`}
+                      >
+                        <program.icon className={`w-8 h-8 ${colors.text}`} />
+                      </motion.div>
+                      <h3 className="text-xl font-display text-foreground mb-3">
+                        {program.title}
+                      </h3>
+                      <p className="text-muted-foreground leading-relaxed">
+                        {program.description}
+                      </p>
                     </CardContent>
                   </Card>
                 </motion.div>
