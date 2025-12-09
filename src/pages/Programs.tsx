@@ -14,44 +14,45 @@ import {
   GraduationCap,
   Clock,
   ArrowRight,
-  Star
+  Star,
+  Coffee
 } from "lucide-react";
 import galleryPreview from "@/assets/gallery-preview.jpg";
 
 const programs = [
   {
     icon: Palette,
-    title: "Arts Programs",
-    description: "Our core arts programs explore a wide variety of media including painting, drawing, sculpture, ceramics, fiber arts, and mixed media. Artists work at their own pace with support from our skilled staff and volunteers.",
-    features: ["Painting & Drawing", "Sculpture & Ceramics", "Mixed Media", "Fiber Arts"],
+    title: "Daily Living Skills",
+    description: "Artistry Oasis LLC is a Day Service that offers Daily Living Skills. Through creative activities, participants build essential life skills while expressing themselves artistically.",
+    features: ["Problem Solving", "Decision Making", "Following Directions", "Independence"],
     color: "primary",
   },
   {
     icon: BookOpen,
-    title: "Daily Living Skills",
-    description: "Through creative activities, participants build essential life skills. Art-making strengthens problem-solving, decision-making, and the ability to follow multi-step directions.",
-    features: ["Problem Solving", "Decision Making", "Following Directions", "Independence"],
+    title: "Art Programs",
+    description: "Our core arts programs explore a wide variety of media. Artists work at their own pace with support from our skilled staff and volunteers.",
+    features: ["Mixed Media", "Painting", "Drawing", "Paper Crafts"],
     color: "accent",
   },
   {
-    icon: Users,
-    title: "One-on-One Craft Sessions",
-    description: "Personalized craft sessions tailored to individual interests and abilities. Work with a dedicated mentor on projects that excite and inspire you.",
-    features: ["Personalized Instruction", "Flexible Scheduling", "Custom Projects", "Individual Attention"],
+    icon: Heart,
+    title: "Creative Crafts",
+    description: "Explore various craft techniques including mosaics, shell art, and jewelry design. Each project is tailored to individual interests and abilities.",
+    features: ["Mosaics", "Shell Art", "Easy Jewelry / Bead Design", "Custom Projects"],
     color: "sunshine",
   },
   {
-    icon: Heart,
-    title: "Social Skills Building",
-    description: "Art is a powerful tool for connection. Our programs create opportunities for meaningful social interaction, collaboration, and community building.",
-    features: ["Group Collaboration", "Peer Interaction", "Communication Skills", "Team Projects"],
+    icon: Users,
+    title: "Social & Memory Activities",
+    description: "Engage in activities that promote social interaction and cognitive stimulation including memory games and library resources.",
+    features: ["Memory / Game Play", "Library Use", "Easy Readers", "DVD/Movie Rentals"],
     color: "lavender",
   },
   {
     icon: GraduationCap,
     title: "After-School Workshops",
     description: "Creative after-school programs where young artists can explore their artistic talents in a supportive, fun environment.",
-    features: ["Safe Environment", "Skill Building", "Creative Expression", "Homework Support"],
+    features: ["Safe Environment", "Skill Building", "Creative Expression", "Wednesday Sessions"],
     color: "primary",
   },
   {
@@ -102,9 +103,23 @@ const Programs = () => {
               Our <span className="text-gradient">Programs</span>
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed">
-              From daily arts programs to special community events, we offer a variety of creative opportunities that inspire, educate, and empower.
+              Artistry Oasis LLC is a Day Service that offers Daily Living Skills through creative arts and community involvement.
             </p>
           </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Class Info Banner */}
+      <section className="py-12 bg-primary/5 border-y border-primary/10">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <p className="text-lg text-foreground leading-relaxed">
+              <span className="font-display text-primary">Class Size:</span> Daily classes have under 10 participants. Events have 10–15 participants.
+            </p>
+            <p className="text-muted-foreground mt-2">
+              Classes are designed for independent artists who may need some assistance unless they bring their own caregiver.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -184,13 +199,13 @@ const Programs = () => {
                 When We <span className="text-gradient-ocean">Meet</span>
               </h2>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                We offer flexible scheduling to accommodate our participants' needs. Whether you prefer regular weekly sessions or occasional drop-ins, we have options for you.
+                We offer flexible scheduling to accommodate our participants' needs.
               </p>
               <ul className="space-y-4 mb-8">
                 {[
-                  { day: "Weekdays", time: "9:00 AM - 4:00 PM", desc: "Regular Programs" },
-                  { day: "Wednesdays", time: "3:30 PM - 5:30 PM", desc: "After-School Workshops" },
-                  { day: "2nd Saturday", time: "6:00 PM - 9:00 PM", desc: "Monthly Art Night" },
+                  { day: "Normal Hours", time: "Tuesday, Thursday, Friday: 10 AM - 3 PM", desc: "Regular Programs" },
+                  { day: "After School Workshops", time: "Wednesday: 3:30 PM - 5:30 PM", desc: "After-School Sessions" },
+                  { day: "Monthly Event", time: "Last Saturday: 6 PM - 9 PM", desc: "Monthly Art Night" },
                 ].map((schedule) => (
                   <li key={schedule.day} className="flex items-start gap-4 p-4 bg-card rounded-xl shadow-soft">
                     <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
@@ -198,11 +213,21 @@ const Programs = () => {
                     </div>
                     <div>
                       <div className="font-display text-lg text-foreground">{schedule.day}</div>
-                      <div className="text-sm text-muted-foreground">{schedule.time} • {schedule.desc}</div>
+                      <div className="text-sm text-muted-foreground">{schedule.time}</div>
+                      <div className="text-xs text-primary mt-1">{schedule.desc}</div>
                     </div>
                   </li>
                 ))}
               </ul>
+              
+              {/* Snacks Note */}
+              <div className="flex items-start gap-3 p-4 bg-sunshine/10 rounded-xl mb-8">
+                <Coffee className="w-5 h-5 text-foreground mt-0.5 flex-shrink-0" />
+                <p className="text-sm text-muted-foreground">
+                  Snacks and water included, or participants can bring their own for sessions over 2 hours.
+                </p>
+              </div>
+              
               <Button variant="hero" asChild>
                 <Link to="/contact">
                   Get Started

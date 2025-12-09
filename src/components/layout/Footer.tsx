@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Palette, MapPin, Phone, Mail, Heart, Facebook, Instagram } from "lucide-react";
+import { Palette, MapPin, Phone, Mail, Heart, Facebook } from "lucide-react";
 
 const footerLinks = {
   programs: [
     { label: "Daily Living Skills", href: "/programs" },
-    { label: "Arts Programs", href: "/programs" },
-    { label: "One-on-One Crafts", href: "/programs" },
+    { label: "Art Programs", href: "/programs" },
+    { label: "Creative Crafts", href: "/programs" },
     { label: "After-school Workshops", href: "/programs" },
   ],
   company: [
@@ -45,7 +45,7 @@ export function Footer() {
               <span className="font-display text-2xl">Artistry Oasis</span>
             </Link>
             <p className="text-background/70 mb-6 leading-relaxed">
-              Empowering individuals with developmental disabilities through creative arts and community involvement in Ozaukee County.
+              A Day Service that offers Daily Living Skills, empowering individuals with developmental disabilities through creative arts and community involvement in Ozaukee County.
             </p>
             <div className="flex gap-3">
               <a
@@ -56,15 +56,6 @@ export function Footer() {
                 aria-label="Facebook"
               >
                 <Facebook className="w-5 h-5" />
-              </a>
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-primary transition-colors"
-                aria-label="Instagram"
-              >
-                <Instagram className="w-5 h-5" />
               </a>
             </div>
           </div>

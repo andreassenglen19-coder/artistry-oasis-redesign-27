@@ -2,7 +2,7 @@ import { Layout } from "@/components/layout/Layout";
 import { motion } from "framer-motion";
 import { AnimatedSection, StaggerContainer, staggerItem } from "@/components/ui/animated-section";
 import { Card, CardContent } from "@/components/ui/card";
-import { Heart, Users, Star, Lightbulb, Sparkles } from "lucide-react";
+import { Heart, Users, Star, Lightbulb, Sparkles, Palette, Calendar } from "lucide-react";
 import communityArt from "@/assets/community-art.jpg";
 import artSupplies from "@/assets/art-supplies.jpg";
 
@@ -29,6 +29,24 @@ const values = [
   },
 ];
 
+const stats = [
+  {
+    icon: Palette,
+    number: "42+",
+    label: "Artists Served",
+  },
+  {
+    icon: Calendar,
+    number: "10+",
+    label: "Years of Art Programs",
+  },
+  {
+    icon: Users,
+    number: "10+",
+    label: "Volunteers",
+  },
+];
+
 const About = () => {
   return (
     <Layout>
@@ -45,9 +63,30 @@ const About = () => {
               About <span className="text-gradient">Artistry Oasis</span>
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed">
-              A Daily Living Skills program dedicated to serving individuals with developmental disabilities through the transformative power of art.
+              A Day Service that offers Daily Living Skills, dedicated to serving individuals with developmental disabilities through the transformative power of art.
             </p>
           </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-16 bg-primary/5 border-y border-primary/10">
+        <div className="container mx-auto px-4">
+          <StaggerContainer className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            {stats.map((stat) => (
+              <motion.div key={stat.label} variants={staggerItem}>
+                <Card variant="artistic" className="text-center h-full">
+                  <CardContent className="p-8">
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-warm flex items-center justify-center mx-auto mb-4">
+                      <stat.icon className="w-8 h-8 text-primary-foreground" />
+                    </div>
+                    <div className="text-4xl font-display text-primary mb-2">{stat.number}</div>
+                    <div className="text-muted-foreground">{stat.label}</div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </StaggerContainer>
         </div>
       </section>
 
@@ -73,7 +112,7 @@ const About = () => {
                 Our <span className="text-gradient-ocean">Mission</span>
               </h2>
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                Artistry Oasis LLC is a Daily Living Skills program serving our community with developmental disabilities throughout Ozaukee County and surrounding counties.
+                Artistry Oasis LLC is a Day Service that offers Daily Living Skills, serving our community with developmental disabilities throughout Ozaukee County and surrounding counties.
               </p>
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
                 At Artistry Oasis LLC, we teach an array of arts, encourage creativity, build fine motor skills, increase social skills, and increase confidence, and foster community involvement.
