@@ -90,12 +90,10 @@ const Gallery = () => {
                 Facebook
               </a>
               <a
-                href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-6 py-3 bg-accent text-accent-foreground rounded-xl font-medium hover:bg-accent/90 transition-colors"
               >
-                Instagram
               </a>
             </div>
           </AnimatedSection>

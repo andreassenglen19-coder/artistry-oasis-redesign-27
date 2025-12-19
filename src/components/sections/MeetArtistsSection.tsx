@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { AnimatedSection, StaggerContainer, staggerItem } from "@/components/ui/animated-section";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles, Facebook } from "lucide-react";
 
 import artist1 from "@/assets/gallery/artist-1.jpg";
 import artist2 from "@/assets/gallery/artist-2.jpg";
@@ -65,6 +65,24 @@ export function MeetArtistsSection() {
               <ArrowRight className="w-5 h-5" />
             </Link>
           </Button>
+        </AnimatedSection>
+
+        <AnimatedSection className="text-center mt-6">
+          <p className="text-sm text-muted-foreground mb-3">
+            For more frequent updates, photos, and community moments, visit our Facebook page!
+          </p>
+          <div className="flex items-center justify-center gap-3">
+            <Button asChild variant="accent" size="sm">
+              <a
+                href="https://www.facebook.com/p/Artistry-Oasis-LLC-100057713857474/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Facebook className="w-4 h-4" />
+                Visit Our Facebook Page
+              </a>
+            </Button>
+          </div>
         </AnimatedSection>
       </div>
     </section>

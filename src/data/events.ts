@@ -12,9 +12,9 @@ export const communityEvents = [
   { name: "Resource Fairs", slug: "resource-fairs" },
   { name: "Holiday Parties", slug: "holiday-parties" },
   { name: "VFW Auxiliary Events", slug: "vfw-auxiliary-events" },
-  { name: "American Legion Post 470 Events", slug: "american-legion-post-470" },
+  { name: "Tie Blankets Pictures 2025", slug: "american-legion-post-470" },
   { name: "Birthday Celebrations", slug: "birthday-celebrations" },
-  { name: "Portal Inc. Event", slug: "portal-inc-event" },
+  { name: "Ozaukee CountyFair Pictures 2024-2025 ", slug: "portal-inc-event" },
   { name: "Pink Llama Event", slug: "pink-llama-event" },
 ];
 
@@ -23,8 +23,8 @@ export const pastEvents = [
   { year: "2019", events: ["North Shore Bank Spring", "Parkside Community"] },
   { year: "2018", events: ["North Shore Bank Spring", "MS Walk Event", "Flips 4 All Event", "Craft Shows", "North Shore Bank Fall"] },
   { year: "2017", events: ["North Shore Bank Spring", "Flips 4 All Event", "Farmers Market", "Faith Builders", "North Shore Bank Winter"] },
-  { year: "2016", events: ["North Shore Bank Fall", "Portal Inc. Event", "MS Walk Event", "North Shore Bank Spring"] },
-  { year: "2015", events: ["Portal Inc. Event", "North Shore Bank Spring", "Pink Llama Event"] },
+  { year: "2016", events: ["North Shore Bank Fall", "Ozaukee CountyFair Pictures 2024-2025", "MS Walk Event", "North Shore Bank Spring"] },
+  { year: "2015", events: ["Ozaukee CountyFair Pictures 2024-2025", "North Shore Bank Spring", "Pink Llama Event"] },
 ];
 
 // Get slug from event name

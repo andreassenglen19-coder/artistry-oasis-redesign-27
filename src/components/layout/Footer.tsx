@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
 import { Palette, MapPin, Phone, Mail, Heart, Facebook } from "lucide-react";
 
 const footerLinks = {
@@ -36,12 +35,12 @@ export function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link to="/" className="flex items-center gap-3 mb-6">
-              <motion.div
-                whileHover={{ rotate: 15 }}
-                className="w-12 h-12 bg-gradient-warm rounded-xl flex items-center justify-center"
-              >
-                <Palette className="w-7 h-7 text-primary-foreground" />
-              </motion.div>
+              {/* ✅ ONLY CHANGE: Replaced animated Palette with your logo image */}
+              <img
+                src="/src/assets/logo.png"
+                alt="Artistry Oasis Logo"
+                className="w-12 h-12"
+              />
               <span className="font-display text-2xl">Artistry Oasis</span>
             </Link>
             <p className="text-background/70 mb-6 leading-relaxed">
@@ -49,7 +48,7 @@ export function Footer() {
             </p>
             <div className="flex gap-3">
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/p/Artistry-Oasis-LLC-100057713857474/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-primary transition-colors"

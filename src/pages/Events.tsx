@@ -1,11 +1,10 @@
 import { Layout } from "@/components/layout/Layout";
 import { motion } from "framer-motion";
-import { AnimatedSection, StaggerContainer, staggerItem } from "@/components/ui/animated-section";
-import { Card, CardContent } from "@/components/ui/card";
+import { AnimatedSection } from "@/components/ui/animated-section";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Calendar, MapPin, Clock, ArrowRight, Sparkles, Users, Star } from "lucide-react";
-import { communityEvents, pastEvents, getEventSlug } from "@/data/events";
+import { Calendar, ArrowRight } from "lucide-react";
+import EventsByYearSection from "@/components/sections/EventsByYearSection";
 
 const upcomingEvents = [
   {
@@ -64,158 +63,41 @@ const Events = () => {
             <p className="text-xl text-muted-foreground leading-relaxed">
               Join our community events, workshops, and celebrations. There's always something creative happening at Artistry Oasis!
             </p>
-          </AnimatedSection>
-        </div>
-      </section>
-
-      {/* Upcoming Events */}
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-4">
-          <AnimatedSection className="mb-16">
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-              <Sparkles className="w-4 h-4" />
-              Coming Up
-            </span>
-            <h2 className="text-4xl md:text-5xl font-display text-foreground">
-              Upcoming <span className="text-gradient">Events</span>
-            </h2>
-          </AnimatedSection>
-
-          <StaggerContainer className="grid md:grid-cols-2 gap-6 mb-12">
-            {upcomingEvents.map((event) => (
-              <motion.div key={event.title} variants={staggerItem}>
-                <Card variant={event.featured ? "primary" : "artistic"} className="h-full">
-                  <CardContent className="p-8">
-                    <div className="flex items-start justify-between mb-4">
-                      <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-                        event.category === "Monthly" ? "bg-primary/10 text-primary" :
-                        event.category === "Weekly" ? "bg-accent/10 text-accent" :
-                        event.category === "Special" ? "bg-sunshine/20 text-foreground" :
-                        "bg-muted text-muted-foreground"
-                      }`}>
-                        {event.category}
-                      </span>
-                      {event.featured && (
-                        <Star className="w-5 h-5 text-primary fill-primary" />
-                      )}
-                    </div>
-                    
-                    <h3 className="text-2xl font-display text-foreground mb-4">
-                      {event.title}
-                    </h3>
-                    
-                    <div className="space-y-3 mb-6">
-                      <div className="flex items-center gap-3 text-muted-foreground">
-                        <Calendar className="w-5 h-5 text-primary flex-shrink-0" />
-                        <span>{event.date}</span>
-                      </div>
-                      <div className="flex items-center gap-3 text-muted-foreground">
-                        <Clock className="w-5 h-5 text-primary flex-shrink-0" />
-                        <span>{event.time}</span>
-                      </div>
-                      <div className="flex items-center gap-3 text-muted-foreground">
-                        <MapPin className="w-5 h-5 text-primary flex-shrink-0" />
-                        <span>{event.location}</span>
-                      </div>
-                    </div>
-                    
-                    <p className="text-muted-foreground leading-relaxed">
-                      {event.description}
-                    </p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </StaggerContainer>
-
-          <AnimatedSection className="text-center">
-            <Button variant="hero" size="lg" asChild>
-              <Link to="/contact">
-                Register for an Event
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-            </Button>
-          </AnimatedSection>
-        </div>
-      </section>
-
-      {/* Community Events */}
-      <section className="py-24 bg-muted/50">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
-            <AnimatedSection direction="left">
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 text-accent text-sm font-medium mb-6">
-                <Users className="w-4 h-4" />
-                Community
-              </span>
-              <h2 className="text-4xl md:text-5xl font-display text-foreground mb-6">
-                Community <span className="text-gradient-ocean">Events</span>
-              </h2>
-              <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                Our events are open to the public and designed to be inclusive for individuals of all abilities. Whether you're a participant, family member, volunteer, or community member, there's a place for you at our gatherings.
+            <div className="mt-4 max-w-3xl mx-auto">
+              <p className="text-sm text-muted-foreground text-center">
+                We host several annual events. The VFW Auxiliary ‘Illustrating America’ and American Legion Post 470 Winter Markets were added in 2025. The Wendland Nursery Show is held most years, except 2024.
               </p>
-              
-              {/* All Community Events as Clickable Links */}
-              <div className="flex flex-wrap gap-2 mb-8">
-                {communityEvents.map((event) => (
-                  <Link
-                    key={event.slug}
-                    to={`/events/${event.slug}`}
-                    className="px-4 py-2 bg-card rounded-full text-sm text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors shadow-soft"
-                  >
-                    {event.name}
-                  </Link>
-                ))}
-              </div>
-              
-              <ul className="space-y-4">
-                {[
-                  "Monthly art nights open to the community",
-                  "Quarterly open house events",
-                  "Annual art shows and exhibitions",
-                  "Special seasonal celebrations",
-                  "Volunteer appreciation events",
-                ].map((item, index) => (
-                  <motion.li
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
-                    className="flex items-center gap-3"
-                  >
-                    <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                      <div className="w-2 h-2 rounded-full bg-primary" />
-                    </div>
-                    <span className="text-muted-foreground">{item}</span>
-                  </motion.li>
-                ))}
-              </ul>
-            </AnimatedSection>
+            </div>
+            <div className="mt-6 flex flex-col md:flex-row items-center justify-center gap-4">
+              <p className="text-sm text-muted-foreground">For more frequent updates, photos, and community moments, visit our Facebook page!</p>
+              <Button asChild variant="soft" size="sm">
+                <a
+                  href="https://www.facebook.com/p/Artistry-Oasis-LLC-100057713857474/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Visit Our Facebook Page
+                </a>
+              </Button>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
 
-            <AnimatedSection direction="right">
-              <Card variant="artistic" className="p-8">
-                <h3 className="text-2xl font-display text-foreground mb-6">Past Events</h3>
-                <div className="space-y-6">
-                  {pastEvents.map((yearEvents) => (
-                    <div key={yearEvents.year}>
-                      <div className="text-lg font-display text-primary mb-2">{yearEvents.year}</div>
-                      <div className="flex flex-wrap gap-2">
-                        {yearEvents.events.map((event) => (
-                          <Link
-                            key={event}
-                            to={`/events/${getEventSlug(event)}`}
-                            className="px-3 py-1 bg-muted rounded-full text-sm text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors"
-                          >
-                            {event}
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </Card>
-            </AnimatedSection>
+      {/* Simplified Events layout: only current + previous year lists */}
+      <section className="py-16 bg-background">
+        <div className="container mx-auto px-4">
+          <AnimatedSection className="text-center mb-8">
+            <h2 className="text-3xl md:text-4xl font-display text-foreground">Events</h2>
+            <p className="text-muted-foreground mt-2 max-w-2xl mx-auto">
+              For the most up-to-date activities, photos, and community moments, follow us on Facebook: <a href="https://www.facebook.com/p/Artistry-Oasis-LLC-100057713857474/" target="_blank" rel="noopener noreferrer" className="text-primary underline">Visit Our Facebook Page</a>
+            </p>
+          </AnimatedSection>
+
+          <EventsByYearSection />
+
+          <div className="max-w-3xl mx-auto text-center mt-8">
+            <p className="text-sm text-muted-foreground">Want to see more from past years? We keep archives for reference, but only the current and previous year are shown here to keep the site low-maintenance.</p>
           </div>
         </div>
       </section>

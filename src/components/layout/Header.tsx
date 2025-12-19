@@ -11,6 +11,7 @@ const navLinks = [
   { href: "/about", label: "About" },
   { href: "/programs", label: "Programs" },
   { href: "/events", label: "Events", hasDropdown: true },
+  { href: "/events-by-year", label: "Our Events by Year" },
   { href: "/gallery", label: "Gallery" },
   { href: "/contact", label: "Contact" },
 ];
@@ -47,23 +48,23 @@ export function Header() {
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-3 group">
-          <motion.div
-            whileHover={{ rotate: 15, scale: 1.1 }}
-            transition={{ type: "spring", stiffness: 300 }}
-            className="w-12 h-12 bg-gradient-warm rounded-xl flex items-center justify-center shadow-lg"
-          >
-            <Palette className="w-7 h-7 text-primary-foreground" />
-          </motion.div>
-          <div className="flex flex-col">
-            <span className="font-display text-2xl text-foreground leading-tight">
-              Artistry Oasis
-            </span>
-            <span className="text-xs text-muted-foreground font-body tracking-wide">
-              Creative Arts for All
-            </span>
-          </div>
-        </Link>
+<Link to="/" className="flex items-center gap-3 group">
+  <motion.div
+    whileHover={{ rotate: 15, scale: 1.1 }}
+    transition={{ type: "spring", stiffness: 300 }}
+    className="w-12 h-12 rounded-xl flex items-center justify-center"
+  >
+    <img src="/src/assets/logo.png" alt="Logo" className="w-8 h-8" />
+  </motion.div>
+  <div className="flex flex-col">
+    <span className="font-display text-2xl text-foreground leading-tight">
+      Artistry Oasis
+    </span>
+    <span className="text-xs text-muted-foreground font-body tracking-wide">
+      Creative Arts for All
+    </span>
+  </div>
+</Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center gap-1">
